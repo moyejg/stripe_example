@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use devise for user authentication
 gem 'devise'
 
+# Use stripe to save user card info for later payments
+gem 'stripe'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
