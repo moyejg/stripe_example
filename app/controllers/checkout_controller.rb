@@ -27,6 +27,8 @@ class CheckoutController < ApplicationController
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @setup_intent = Stripe::SetupIntent.retrieve(@session.setup_intent)
+    # get customer_id from session/setupintent and attach to user in rails
+    current_user.update(stripe_customer_id: @setup_intent.customer)
   end
 
   def cancel
